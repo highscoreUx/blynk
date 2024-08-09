@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    body{
+        @apply bg-neutral-100 text-neutral-800
+    }
+
+    h1{
+        @apply font-bold md:text-6xl text-5xl
+    }
+
+    h2{
+        @apply font-bold md:text-3xl text-5xl
+    }
+
+    h3{
+        @apply font-bold text-xl
+    }
+
+    p{
+        @apply text-neutral-600
+    }
+
+    button:disabled{
+        @apply bg-neutral-400
+    }
+}   
