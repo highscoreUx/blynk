@@ -34,9 +34,10 @@ const Links = () => {
                 setCurrent(current + 1)
                }}>See More links</button>}
             </div>
-            {sorted.length === 0 && <div>
+            {sorted.length === 0 && <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow">
             <h2 className="text-[32px]">No Links Added Yet</h2>
             <p className="text-sm">Please add a link to see posted links here</p>
+            <a className="bg-blue-600 p-4 text-white mt-4 rounded-lg" href="#hero">Get started now</a>
             </div>}
         </Container>
     </div>
