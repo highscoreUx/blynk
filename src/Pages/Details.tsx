@@ -5,6 +5,7 @@ import Container from "../Components/Container";
 import { IoCopyOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import CookieConsent from "../Components/CookieConsent";
+import moment from "moment";
 
 
 
@@ -17,7 +18,13 @@ const Details = () => {
     if (!short) throw new Error("Something went wrong")
 
     const det = getIndividLinks(short)
-    console.log(det[0])
+    const timestamp = det[0]?.timeStamp
+    const uploadedTime = moment(timestamp)
+    const deleteTime = uploadedTime.add(7, 'days')
+    const now = moment()
+
+    const remaingDays = deleteTime.diff(now, 'days')
+    console.log(remaingDays)
     return (
         <main>
             <Navbar />
@@ -36,27 +43,28 @@ const Details = () => {
                             <p className="bg-neutral-100 p-2 rounded-lg text-sm w-[100px] text-center">Shortlink</p>
 
                             <div className="flex gap-1 items-center">
-                            <a href={`${window.location.origin}/${det[0]?.id}`} target="_blank">{window.location.origin}/{det[0]?.id}</a>
-                            <div className="p-2 bg-neutral-100 rounded-lg cursor-pointer hover:bg-blue-700 hover:text-white transition-all duration-200" onClick={()=>{
-                                navigator.clipboard.writeText(`${window.location.origin}/${det[0]?.id}`).then(
-                                    //@ts-ignore
-                                    toast("Copied!")
-                                )
-                            }}>
-                            <IoCopyOutline />
-                            </div>
+                                <a href={`${window.location.origin}/${det[0]?.id}`} target="_blank">{window.location.origin}/{det[0]?.id}</a>
+                                <div className="p-2 bg-neutral-100 rounded-lg cursor-pointer hover:bg-blue-700 hover:text-white transition-all duration-200" onClick={() => {
+                                    navigator.clipboard.writeText(`${window.location.origin}/${det[0]?.id}`).then(
+                                        ()=>{toast.dismiss()
+                                           
+                                            toast("Copied!")}
+                                    )
+                                }}>
+                                    <IoCopyOutline />
+                                </div>
                             </div>
                         </div>
                         <div className="flex flex-col items-start gap-1">
                             <p className="bg-neutral-100 p-2 rounded-lg text-sm w-[100px] text-center">Expiry</p>
-                            <p>{det[0]?.timeStamp}</p>
+                            <p>{remaingDays} Days remaining</p>
                         </div>
 
 
                     </div>
                 </div>
             </Container>
-            <CookieConsent/>
+            <CookieConsent />
         </main>
     )
 }

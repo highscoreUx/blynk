@@ -1,6 +1,8 @@
-- [ ] add cancel icon 
+- [x] add cancel icon 
 - [x] change vite icon
 - [x] change page title
 - [ ] show old links
-- [ ] about & footer
+- [x] features
+- [ ] footer
 - [x] add meta tags
+- [x] fix toast
