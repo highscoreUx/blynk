@@ -28,3 +28,7 @@
         @apply bg-neutral-400
     }
 }   
+
+html{
+    scroll-behavior: smooth;
+}

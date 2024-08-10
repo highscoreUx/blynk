@@ -1,7 +1,7 @@
 - [x] add cancel icon 
 - [x] change vite icon
 - [x] change page title
-- [ ] show old links
+- [x] show old links
 - [x] features
 - [ ] footer
 - [x] add meta tags
