@@ -21,6 +21,7 @@ const router = createBrowserRouter([
 {
     path: '/:id',
     loader: Redirecter,
+    errorElement: <ErrorPage/>
 },
 {
     path: '/details',
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
 },
 {
     path: '*',
-    element: <Error />,
+    element: <ErrorPage />,
 },
 ])
 

@@ -11,5 +11,9 @@ export const Redirecter = async ({params}) => {
         //@ts-ignore
         return redirect(data[0].redirectUrl);
     }
+
+  else{
+    throw new Error('Link Not Found, Or might have been deleted')
+  }
 }
 
