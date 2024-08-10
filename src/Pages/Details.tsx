@@ -24,7 +24,7 @@ const Details = () => {
     const now = moment()
 
     const remaingDays = deleteTime.diff(now, 'days')
-    console.log(remaingDays)
+  
     return (
         <main>
             <Navbar />

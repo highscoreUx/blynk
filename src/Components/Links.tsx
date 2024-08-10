@@ -26,7 +26,7 @@ const Links = () => {
                </div>
                <div className="mt-4">
                 
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-4">{sorted.length > 1 && sorted.map(({
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-4">{sorted.length > 0 && sorted.map(({
                     //@ts-ignore
                     id}, index)=>{
                     return <div className="p-4 bg-white rounded-lg shadow-sm text-sm cursor-pointer hover:scale-105 transition-all duration-300" key={index} onClick={()=>{navigate(`/details?id=${id}`)}}>{`${domain}/${id}`}</div>
