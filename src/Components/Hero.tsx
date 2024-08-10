@@ -9,6 +9,7 @@ import { FcOk } from 'react-icons/fc';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import HeroImage from '../assets/HeroImage';
+import { IoClose } from 'react-icons/io5';
 
 const Hero = () => {
     const diaref = useRef<HTMLDialogElement | null>(null)
@@ -51,7 +52,7 @@ const Hero = () => {
                 </div>
                 <div className='w-full'><HeroImage/></div>
             </div>
-            <dialog ref={diaref} className='w-full md:w-[400px] p-4 rounded-lg'>
+            <dialog ref={diaref} className='w-full md:w-[400px] p-4 rounded-lg relative'>
                 <div className='mb-3'><h3>URL Details</h3>
                 <p className='text-sm'>Fill in all fields to create a short link</p></div>
                 <form onSubmit={handleSubmit}>
@@ -61,6 +62,7 @@ const Hero = () => {
                     </div>
                     <motion.button className='bg-blue-700 text-white p-4 rounded-lg mt-4 text-sm w-full transition-colors duration-300' whileHover={{ scale: 1.05, y: -1.5 }} whileTap={{ scale: 1.02 }} disabled={!redirectUrl}>Submit</motion.button>
                 </form>
+                <div className='absolute right-4 top-4 cursor-pointer' onClick={()=>{diaref.current?.close()}}><IoClose/></div>
             </dialog>
         </Container>
     )
