@@ -23,10 +23,10 @@ const Links = () => {
                </div>
                <div className="mt-4">
                 
-                <div className="flex gap-4 flex-wrap">{sorted.length > 1 && sorted.map(({
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-4">{sorted.length > 1 && sorted.map(({
                     //@ts-ignore
-                    id})=>{
-                    return <a className="p-4 bg-white rounded-lg shadow-sm text-sm" href={`${domain}/${id}`} target="_blank">{`${domain}/${id}`}</a>
+                    id}, index)=>{
+                    return <a className="p-4 bg-white rounded-lg shadow-sm text-sm" href={`${domain}/${id}`} target="_blank" key={index}>{`${domain}/${id}`}</a>
                 })}</div>
                </div>
 
