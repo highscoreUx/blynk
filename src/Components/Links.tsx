@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { getCookies } from "../utils/getSavedLinks"
 import Container from "./Container"
+import { useNavigate } from "react-router-dom"
 
 
 const links = getCookies()
@@ -9,10 +10,12 @@ const domain  = window.location.origin
 
 
 const Links = () => {
+    const navigate = useNavigate()
     const linksPerPage = 6
     const [current, setCurrent] = useState(1)
     const indexOfLastLink = current * linksPerPage
     const sorted = links.slice(0,indexOfLastLink)
+    
   return (
     <div className="py-6">
         <Container>
@@ -26,7 +29,7 @@ const Links = () => {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-4">{sorted.length > 1 && sorted.map(({
                     //@ts-ignore
                     id}, index)=>{
-                    return <a className="p-4 bg-white rounded-lg shadow-sm text-sm" href={`${domain}/${id}`} target="_blank" key={index}>{`${domain}/${id}`}</a>
+                    return <div className="p-4 bg-white rounded-lg shadow-sm text-sm cursor-pointer hover:scale-105 transition-all duration-300" key={index} onClick={()=>{navigate(`/details?id=${id}`)}}>{`${domain}/${id}`}</div>
                 })}</div>
                </div>
 
