@@ -49,7 +49,7 @@ const Hero = () => {
                         diaref.current?.showModal()
                     }}>Create New Link</motion.button>
                 </div>
-                <div><HeroImage/></div>
+                <div className='w-full'><HeroImage/></div>
             </div>
             <dialog ref={diaref} className='w-full md:w-[400px] p-4 rounded-lg'>
                 <div className='mb-3'><h3>URL Details</h3>

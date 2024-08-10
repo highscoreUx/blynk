@@ -4,6 +4,7 @@ import { getIndividLinks } from "../utils/getSavedLinks"
 import Container from "../Components/Container";
 import { IoCopyOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
+import CookieConsent from "../Components/CookieConsent";
 
 
 
@@ -55,6 +56,7 @@ const Details = () => {
                     </div>
                 </div>
             </Container>
+            <CookieConsent/>
         </main>
     )
 }
