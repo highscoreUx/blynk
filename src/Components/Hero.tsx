@@ -15,7 +15,7 @@ const Hero = () => {
     const diaref = useRef<HTMLDialogElement | null>(null)
     const navigate = useNavigate()
  
-    const {mutate} = useMutation({
+    const {mutate, isPending} = useMutation({
         mutationFn: ({ red, id }: { red: string; id: string }) => {
             return createLink(red, id); 
           }, 
@@ -60,7 +60,7 @@ const Hero = () => {
                     <label htmlFor="url" className='mb-2'>Url</label>
                     <input type="url" name="url" id="url" required value={redirectUrl} onChange={(e) => { setRedirectUrl(e.currentTarget.value) }} className='bg-neutral-100 p-4 rounded-lg mb-2 focus:outline-none' placeholder='https://'/>
                     </div>
-                    <motion.button className='bg-blue-700 text-white p-4 rounded-lg mt-4 text-sm w-full transition-colors duration-300' whileHover={{ scale: 1.05, y: -1.5 }} whileTap={{ scale: 1.02 }} disabled={!redirectUrl}>Submit</motion.button>
+                    <motion.button className='bg-blue-700 text-white p-4 rounded-lg mt-4 text-sm w-full transition-colors duration-300' whileHover={{ scale: 1.05, y: -1.5 }} whileTap={{ scale: 1.02 }} disabled={!redirectUrl || isPending}>{isPending? `Blynking...`:`Submit`}</motion.button>
                 </form>
                 <div className='absolute right-4 top-4 cursor-pointer' onClick={()=>{diaref.current?.close()}}><IoClose/></div>
             </dialog>

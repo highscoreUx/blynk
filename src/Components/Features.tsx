@@ -24,7 +24,7 @@ const Features = () => {
                                 })}
                             </div>
                         </div>
-                        <div>
+                        <div className="w-full">
                             {image}
                         </div>
                     </div>
